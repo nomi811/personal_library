@@ -1,4 +1,4 @@
-# Personal Library
+# Personal Library  [![Build Status](https://travis-ci.org/nomi811/personal_library.svg?branch=master)](https://travis-ci.org/nomi811/personal_library)   [![Coverage Status](https://coveralls.io/repos/github/nomi811/personal_library/badge.svg?branch=master)](https://coveralls.io/github/nomi811/personal_library?branch=master)
 
 In this project I want to create a database of my personal library and keep track of books and other resources I'd like to read in the future.
 
