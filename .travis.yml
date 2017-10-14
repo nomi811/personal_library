@@ -1,12 +1,23 @@
 language: ruby
 rvm:
-  - 2.4.2
+- 2.4.2
 before_script:
-  - bundle exec rake db:create --all
-  - bundle exec rake db:migrate
+- bundle exec rake db:create --all
+- bundle exec rake db:migrate
 script:
-  - bundle exec rake ci:tests
+- bundle exec rake ci:tests
 services:
-  - postgresql
+- postgresql
 notifications:
   email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: bwuOLZt5nUfNEV8c4mHaqUDLxULKHPY7NVwMKwIJAF57TkvKAt+i9iSSrq0mO+/7kEJnZilsXFyOs233L1z7seh13vkrbDNFjwUmBYH0DnBR+wFV0yNMpuVJhg6UvTg2A/wknE0hKDh16lpqjBfmmyp1hMS9uCYujc+WIDztVjWAtApfBTxwKbp9T31oPonmU3rpzSirVsnI6d5MTe+KgZ0hBF5eLxP0S139jQwJyBbbaRp42aZnS2dZ9RjNjJvnQoSn+zLDu/LbLSV2XrgO1/+UKLlTkJeCYElimQ+4m5790+DIxfHjuf7mS+vMQCaCrX83kEqJVQycJVEto3awcISuuY/XME9E2sdqMnPIIHDr5YDqmWwQCzyH5XmsnxCl2KrMMhYTuwefINIqXzTnTC/w+5Se8h6I42O37VvQtiMhEXHIYL4m86oZySLIuh6ySzdczaJAd1ap0KNJTkqZ4zUh+P4IIQB4zhPXZUUy73lk0knififLFlwir8uRIYimcRoVKJf31ypiSFxSN7Iy5iNF2jVHixwdS9Rf4mJkL0PvdieqnF8lroRYgrdMgEF3cgdJ7QbmW82grpoPDHYm4a/oj2OnOucDACv/ALviAYxJdnHIhLbmDHwEEtxvrXeBna5g94YJNEIsjRZicH9Idh8kJrQ8uz+0G0eWAGgzIhc=
+    app:
+      develop: nv-library.herokuapp.com
+      master: nv-library.herokuapp.com
+    on:
+      repo: git@github.com:nomi811/personal_library.git
+    run:
+      - "rails db:migrate"
